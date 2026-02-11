@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Be My Valentine?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a paragraph of content.</p>
-    <button id="myButton">Click me!</button>
+    <div id="bg-image"></div>
 
+    <div id="container">
+        <h1 id="question">Will you be my Valentine? ❤️</h1>
+        <p style="font-family: Arial, sans-serif;" id="sad-message"></p>
+
+        <div class="buttons">
+            <button id="yesBtn">Yes 😍</button>
+            <button id="noBtn">No 🤮</button>
+        </div>
+
+        <div id="celebration" class="hidden">
+
+            <img id="celebration-img" src="175255.png" alt="Us!">
+            <h2>Yayy I love you!!!! </h2>
+            <div id="extra-message-box">
+                <p>You WILL be my Valentine</p>
+            </div>
+            <div class="hearts">❤️ 💖 ✨ 🌹</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
+

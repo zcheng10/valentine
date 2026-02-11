@@ -1,9 +1,180 @@
-body {
-    background-color: lightblue;
-    text-align: center;
-    font-family: sans-serif;
+:root {
+    --text-color: #000f; /* Changed to white so it's visible over photos */
+    --yes-btn-color: #008000;
+    --no-btn-color: #FF0000;
+    --font-family: 'Brush Script MT';
 }
 
-h1 {
-    color: navy;
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: var(--font-family);
+}
+
+/* --- BACKGROUND IMAGE SETTINGS --- */
+#bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* REPLACE 'your-photo.jpg' with your actual image file name */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: mistyrose;
+    z-index: -1; /* Keeps it behind everything */
+}
+
+#container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent box for readability */
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px); /* Blurs the background behind the text */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Button styles remain the same as previous */
+button {
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.2s;
+}
+
+#yesBtn {
+    background-color: var(--yes-btn-color);
+    color: white;
+}
+
+#noBtn {
+    background-color: var(--no-btn-color);
+    color: white;
+    position: absolute;
+    transition: all 0.3s ease-out;
+    z-index: 1000; /* Keeps it above your photo and text */
+    transition: all 0.3s ease;
+    /* Initial position so it's not teleporting from 0,0 */
+    top: 50%;
+    left: 60%;
+}
+
+/* --- CELEBRATION IMAGE STYLING --- */
+#celebration {
+    position: relative;
+    top: 0%;
+    left: 10%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#celebration-img {
+    position: fixed;
+    top: -160%; /* Increase to move down, decrease to move up */
+    left: 15%; /* Increase to move right, decrease to move left */
+    /* This ensures the center of the IMAGE is at the coordinates above */
+    transform: translate(0%, 0%);
+    max-width: 69%; /* Adjust size as needed */
+    max-height: 70vh;
+    opacity: 1.0;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 1; /* Behind the text */
+    animation: fadeIn 1.5s ease-in;
+}
+
+.celebration-content {
+    position: fixed;
+    top: 160%; 
+    left: 50%;
+    transform: translateX(0%); 
+
+    z-index: 10; 
+    text-align: center;
+    width: 90%;
+    z-index: 2; 
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#main-yay {
+    position: fixed;
+    top: 100%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* secondary message */
+#extra-message-box {
+    position: fixed;
+    top: 130%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 2px solid #ff69b4;
+}
+
+    #extra-message-box p {
+        margin: 0;
+        color: #d02090;
+        font-weight: bold;
+        font-size: 2.0rem;
+    }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* hidden */
+.hidden {
+    display: none !important;
 }
